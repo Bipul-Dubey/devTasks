@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <strong>tag</strong>: <br>
+    <strong>element</strong>: An HTML element is defined by a start tag, some content, and an end tag.
+    <pre><strong>attribute</strong>: HTML attributes provide additional information about HTML elements.
+        HTML Attributes
+        All HTML elements can have attributes
+        Attributes provide additional information about elements
+        Attributes are always specified in the start tag
+        Attributes usually come in name/value pairs like: name="value"
+    </pre>
+    <strong>heading</strong>: HTML headings are titles or subtitles that you want to display on a webpage. h1 to h6 <br>
+    <strong>style (attribute)</strong>: The HTML style attribute is used to add styles to an element, such as color, font, size, and more. <br>
+    <strong>formatting</strong>: <pre>
+        b - Bold text
+        strong - Important text
+        i - Italic text
+        em - Emphasized text
+        mark - Marked text
+        small - Smaller text
+        del - Deleted text
+        ins - Inserted text
+        sub - Subscript text
+        sup - Superscript text
+    </pre>
+    <strong>CSS</strong><pre>Adding CSS in html
+        <strong>Inline CSS:</strong> styling in html tags using style attribute
+        <strong>Internal CSS:</strong> writing css code inside same html page in "style" tag inside head
+        <strong>External CSS</strong> writing css code in another file with .css and link to html page
+        using link tag :- link rel="stylesheet" href="style.css"
+        preferences: External < internal < inline
+    </pre>
+    <strong>JavaScript makes HTML pages more dynamic and interactive.</strong>
+    <pre>
+        <strong>script</strong> tag used to insert js in html
+        The "script" element either contains script statements,
+        or it points to an external script file through the src attribute.
+
+        The HTML "noscript" tag defines an alternate content to be displayed to users that have disabled scripts in their browser or have a browser that doesn't support scripts:
+    </pre>
+    <strong>inserting link in html page:</strong> using a tag <pre>The target attribute can have one of the following values:
+        _self - Default. Opens the document in the same window/tab as it was clicked
+        _blank - Opens the document in a new window or tab
+        _parent - Opens the document in the parent frame
+        _top - Opens the document in the full body of the window</pre>
+    <strong>inserting image in html page:</strong> using img tag <br>
+    <strong>table in html:</strong><pre>
+        table -tag
+        tr for row
+        th for table heading row
+        td for table data row
+
+        example as below
+    </pre>
+    <table>
+        <tr>
+            <th>
+                S.NO.
+            </th>
+            <th>Name</th>
+            <th>JOB</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Bipul</td>
+            <td>Developer</td>
+        </tr>
+    </table>
+    <strong>List:</strong>HTML lists allow to group a set of related items in lists.
+    <ul style="list-style-type:circle;">
+        <dt>Unordered List</dt>
+        <li>List item 1</li>
+        <li>List item 2</li>
+        <li>List item 3</li>
+    </ul>
+    <ol type="1">ordered list
+        <li>List item 1</li>
+        <li>List item 2</li>
+        <li>List item 3</li>
+    </ol>
+    <h2><strong>Block & Inline element:- </strong>There are two display values: block and inline.</h2>
+    <pre>
+        <strong>Block element:</strong>
+        A block-level element always starts on a new line, and the browsers automatically add some space (a margin) before and after the element.
+        A block-level element always takes up the full width available (stretches out to the left and right as far as it can).
+        <h5>block elements are:
+        address article aside blockquote canvas div fieldset footer form, h1 to h6 header
+        hr li main nav noscript ol p pre section table tfoot ul video </h5>
+
+        <strong>Inline element:</strong>
+        An inline element does not start on a new line.
+        An inline element only takes up as much width as necessary.
+        <h5>Here are the inline elements in HTML:
+        a abbr acronym b big br button em i img input label map
+        script small span strong sub sup textarea time
+        </h5>*Note: An inline element cannot contain a block-level element!
+    </pre>
+    <strong>Class:</strong>
+    <pre>
+    The HTML class attribute is used to specify a class for an HTML element.
+    Multiple HTML elements can share the same class.
+    an single element may contain more then one class
+    - class used to group multiple elements in one and then all the style a class contain is apply to all
+    - in css or js it is selected using (.className)
+    </pre>
+    <strong>ID:</strong>
+    <pre>
+    The HTML id attribute is used to specify a unique id for an HTML element.
+    Cannot have more than one element with the same id in an HTML document.
+    The id attribute is used to point to a specific style declaration in a style sheet.
+    It is also used by JavaScript to access and manipulate the element with the specific id.
+    it is also use as linking inside a document
+    - in css or js it is selected using (#idName)
+    </pre>
+    <h2>Some mores...</h2>
+    <pre>
+        iframe is used to display a web page within a web page.
+    </pre>
+    <h1>Semantic Tags</h1>
+    <li>A semantic element clearly describes its meaning to both the browser and the developer.</li>
+    <li>Examples of non-semantic elements: "div" and "span" - Tells nothing about its content.</li>
+    <li>Examples of semantic elements: "form", "table", and "article" - Clearly defines its content.</li>
+    <pre>
+        header - Defines a header for a document or a section
+        nav - Defines a set of navigation links
+        section - Defines a section in a document
+        article - Defines an independent, self-contained content
+        aside - Defines content aside from the content (like a sidebar)
+        footer - Defines a footer for a document or a section
+        details - Defines additional details that the user can open and close on demand
+        summary - Defines a heading for the "details" element
+
+        - figcaption
+        - figure
+        - main
+        - mark
+        - time
+    </pre>
+</body>
+</html>
