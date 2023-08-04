@@ -7,7 +7,7 @@
 header {
     background-color: #8ed2c9;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 14px 20px;
     flex-wrap: wrap;
@@ -18,43 +18,43 @@ header {
     font-family: 'Ubuntu', sans-serif;
 }
 
-nav ul {
+nav ul{
     display: flex;
     list-style: none;
-    padding: 0;
+    flex-wrap: wrap;
 }
 
-nav ul li {
-    margin: 0 12px;
+nav ul li a{
+    margin: 0 18px;
 }
 
 nav a {
     text-decoration: none;
-    color: rgb(233, 11, 11);
-    font-size: 1.5rem;
+    color: black;
+    font-size: 1.4rem;
     font-family: 'Poppins', sans-serif;
+    font-weight: 600;
 }
 
 nav a:hover {
-    color: green;
-    text-decoration: underline;
+    color: rgb(84, 82, 82);
 }
 
-header>a {
+header > a {
     text-decoration: none;
     font-size: 1.2rem;
-    color: black;
+    color: rgb(9, 108, 94);
+    font-weight: 600;
 }
 
 /* main content */
 main {
-    background-color: whitesmoke;
+    background-color: rgb(250, 248, 248);
 }
 
 /* Home Intro */
 .intro {
-    height: 60vh;
-    background-color: red;
+    height: 410px;
     background: url("../images/background.jpg") no-repeat center center;
     background-position: center;
     background-size: cover;
@@ -63,46 +63,34 @@ main {
 
 .intro h2 {
     color: gold;
-    text-align: center;
     padding: 20px;
     font-size: 3.7rem;
 }
 
 .intro p {
     color: greenyellow;
-    text-align: center;
     margin-top: 40px;
     padding: 20px;
     font-size: 1.4rem;
     font-weight: 700;
+    box-sizing: border-box;
 }
 
 /* about page */
 .about-us h2 {
-    text-align: center;
     color: blue;
     padding: 12px 0;
     font-size: 2.2rem;
     font-family: 'Roboto Mono', monospace;
 }
 
-/* teams */
-.teams {
-    color: black;
-}
-
-.teams>h3 {
-    text-align: center;
-    font-size: 1.7rem;
-}
-
-.members {
+.members,.techs {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
 
-.member {
+.member,.tech {
     height: 350px;
     width: 300px;
     margin: 10px;
@@ -110,66 +98,11 @@ main {
     border-radius: 23px;
 }
 
-.members img {
+main img {
     height: 200px;
     width: 300px;
     border-radius: 20px;
     margin-bottom: 25px;
-}
-
-.members h3 {
-    color: #fd5f00;
-    text-align: center;
-    font-size: 1.5rem;
-}
-
-.members p {
-    color: #e800fd;
-    text-align: center;
-    font-size: 1.2rem;
-}
-
-/* technology */
-.technology {
-    color: black;
-}
-
-.technology>h3 {
-    text-align: center;
-    font-size: 1.7rem;
-}
-
-.techs {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-}
-
-.tech {
-    height: 350px;
-    width: 300px;
-    margin: 10px;
-    border: 2px solid rgb(0, 55, 128);
-    border-radius: 23px;
-}
-
-.techs img {
-    height: 200px;
-    width: 300px;
-    border-radius: 20px;
-    margin-bottom: 25px;
-}
-
-.techs h3 {
-    color: #fd5f00;
-    text-align: center;
-    font-size: 1.5rem;
-}
-
-.techs p {
-    color: #e800fd;
-    text-align: center;
-    font-size: 1.2rem;
 }
 
 hr {
@@ -189,7 +122,6 @@ hr {
 }
 
 .contact-us h2 {
-    text-align: center;
     font-size: 2.2rem;
     color: white;
     font-family: 'Roboto Mono', monospace;
@@ -240,18 +172,33 @@ textarea {
 
 /* footer */
 footer {
-    height: 10vh;
+    height: 75px;
     background-color: #142d4c;
+    text-align: center;
 }
 
 footer h3 {
     color: #fd5f00;
-    text-align: center;
     font-size: 1.8rem;
     font-family: 'Ubuntu', sans-serif;
 }
 
 footer p {
-    text-align: center;
     font-size: 1.2rem;
+}
+
+/* utils */
+main{
+    text-align: center;
+}
+
+main h3{
+    font-size: 1.7rem;
+    color:#142d4c;
+    font-family: 'Franklin Gothic Medium', sans-serif;
+}
+
+main p{
+    font-size: 1.2rem;
+    color:brown;
 }
