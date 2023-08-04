@@ -1,0 +1,248 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+/* navbar */
+header{
+    background-color: #8ed2c9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    flex-wrap: wrap;
+}
+
+.logo{
+    color: #fd5f00;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+nav ul{
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li{
+    margin: 0 12px;
+}
+
+nav a{
+    text-decoration: none;
+    color: rgb(233, 11, 11);
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+nav a:hover{
+    color: green;
+    text-decoration: underline;
+}
+
+header > a{
+    text-decoration: none;
+    font-size: 1.2rem;
+    color:black;
+}
+
+/* main content */
+main{
+    background-color: whitesmoke;
+}
+/* Home Intro */
+.intro{
+    height: 60vh;
+    background-color: red;
+    background: url("../images/techimage.jpg") no-repeat center center;
+    background-position: center;
+    background-size: cover;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.intro h2{
+    color: gold;
+    text-align: center;
+    padding: 20px;
+    font-size: 3.7rem;
+}
+
+.intro p{
+    color: #ffffff;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1.4rem;
+}
+
+/* about page */
+.about-us h2{
+    text-align: center;
+    color: blue;
+    padding: 12px 0;
+    font-size: 2.2rem;
+    font-family: 'Roboto Mono', monospace;
+}
+
+/* teams */
+.teams{
+    color: black;
+}
+
+.teams > h3{
+    text-align: center;
+    font-size: 1.7rem;
+}
+
+.members{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.member{
+    height: 350px;
+    width: 300px;
+    margin: 10px;
+    border: 2px solid green;
+    border-radius: 23px;
+}
+
+.members img{
+    height: 200px;
+    width: 300px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+}
+
+.members h3{
+    color: #fd5f00;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.members p{
+    color: #e800fd;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+/* technology */
+.technology{
+    color: black;
+}
+
+.technology > h3{
+    text-align: center;
+    font-size: 1.7rem;
+}
+
+.techs{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.tech{
+    height: 350px;
+    width: 300px;
+    margin: 10px;
+    border: 2px solid rgb(0, 55, 128);
+    border-radius: 23px;
+}
+
+.techs img{
+    height: 200px;
+    width: 300px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+}
+
+.techs h3{
+    color: #fd5f00;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.techs p{
+    color: #e800fd;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+hr{
+    border: 3px dotted gold;
+    border-radius: 70%;
+    margin: 0 90px;
+}
+
+/* contact us */
+.contact-us{
+    background-color: #c4c1e0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background: url("../images/contacts.webp") no-repeat center center;
+    background-size: cover;
+}
+
+.contact-us h2{
+    text-align: center;
+    font-size: 2.2rem;
+    color: white;
+    font-family: 'Roboto Mono', monospace;
+}
+
+form{
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+textarea{
+    padding: 3px;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contacts{
+    order: 2;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contacts input{
+    width: 305px;
+    padding: 7px;
+    margin-bottom: 7px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+}
+
+.btn{
+    font-size: 1.2rem;
+    padding: 7px;
+    border-radius: 7px;
+    background-color: #fd5f00;
+    color: wheat;
+}
+
+.btn:hover{
+    background-color: blue;
+}
+
+/* footer */
+footer{
+    height: 10vh;
+    background-color: #142d4c;
+}
+
+footer h3{
+    color:#fd5f00;
+    text-align: center;
+    font-size: 1.8rem;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+footer p{
+    text-align: center;
+    font-size: 1.2rem;
+}

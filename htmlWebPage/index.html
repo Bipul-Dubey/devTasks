@@ -1,15 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Web Page</title>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto+Mono:wght@300&family=Ubuntu&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-    <header></header>
-    <nav></nav>
-    <aside></aside>
-    <section></section>
-    <article></article>
+    <header>
+        <h1 class="logo">TechTalk</h1>
+        <nav class="navbar">
+            <!-- navigation items -->
+            <ul class="nav-items">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+        <a href="mailto:abc@gmail.com">Mail Us</a>
+    </header>
+
+    <main>
+        <section class="intro">
+            <h2>Welcome to TechTalk</h2>
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid est repudiandae quisquam tempore ad
+                quos nemo a eligendi nesciunt architecto.
+            </p>
+        </section>
+
+        <section class="about-us">
+            <h2>About Us</h2>
+
+            <article class="teams">
+                <h3>Our Team</h3>
+                <div class="members">
+                    <div class="member" id="member-1">
+                        <img src="../images/person1.jpg" alt="">
+                        <h3>The Rocket</h3>
+                        <p>Web Application & Android Application Developer</p>
+                    </div>
+                    <div class="member" id="member-2">
+                        <img src="../images/person2.jpeg" alt="">
+                        <h3>Alien Elon Musk</h3>
+                        <p>AI and Data Engineer</p>
+                    </div>
+                    <div class="member" id="member-3">
+                        <img src="../images/person3.jpg" alt="">
+                        <h3>Johnny Robert</h3>
+                        <p>AI Engineer And Mechanic engineering</p>
+                    </div>
+                </div>
+            </article>
+            <hr>
+            <article class="technology">
+                <h3>Our Technology</h3>
+                <div class="techs">
+                    <div class="tech" id="tech-1">
+                        <img src="../images/mobileapp.png" alt="">
+                        <h3>Web and Mobile Applications</h3>
+                        <p>Android, iOS, Web: Flutter, HTML, CSS, JavaScript</p>
+                    </div>
+                    <div class="tech" id="tech-2">
+                        <img src="../images/aidev.jpeg" alt="">
+                        <h3>AI and Machine Learning</h3>
+                        <p>AI model: Python, R, real-time analysis</p>
+                    </div>
+                    <div class="tech" id="tech-3">
+                        <img src="../images/desktop.png" alt="">
+                        <h3>Desktop Applications</h3>
+                        <p>Window, MacOS, Linux: Flutter,C++,JAVA</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section class="contact-us">
+            <h2>Contact Us</h2>
+            <form action="">
+                <textarea name="" id="msg" cols="30" rows="10" placeholder="Your Message here......"></textarea>
+                <div class="contacts">
+                    <input type="text" id="name" placeholder="Your Name">
+
+                    <input type="email" name="" id="email" placeholder="Your Email">
+
+                    <input type="tel" name="" id="phone" placeholder="Your Mobile Number">
+
+                    <button type="submit" class="btn">Send Message</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <h3>TechTalk</h3>
+        <p>mail@: bipul@gmail.com | &copy;2023</p>
+    </footer>
 </body>
+
 </html>
