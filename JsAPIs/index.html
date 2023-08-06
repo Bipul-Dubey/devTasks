@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS API Demo</title>
+    <!-- css -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <h1>JavaScript API Fetch Demo</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>UserName</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody id="user-details">
+                
+            </tbody>
+        </table>
+    </main>
+
+    <script>
+        const url = `https://jsonplaceholder.typicode.com/users`
+        async function apiDataFetch() {
+            try {
+                let response = await fetch(url)
+                if (response.status == 200) {
+                    let data = await response.json()
+
+                    let table_data=""
+
+                    let user_table = document.getElementById("user-details")
+                    
+                    data.forEach(element => {
+                        table_data+=`<tr>
+                                        <td>${element.id}</td>
+                                        <td>${element.username}</td>
+                                        <td>${element.name}</td>
+                                        <td>${element.email}</td>
+                                        <td>${element.address.street}, ${element.address.city}, ${element.address.zipcode}</td>
+                                    </tr>`
+                    });
+
+                    user_table.innerHTML=table_data;
+                }
+            }
+            catch (error) {
+                console.log(error);
+                return null
+            }
+        }
+        apiDataFetch()
+    </script>
+</body>
+
+</html>
