@@ -1,23 +1,25 @@
-.btn-container{
+.btn-container {
     background-color: rgb(147, 252, 252);
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 2px;
 }
 
-.btn{
+.btn {
     border: none;
     border-radius: 7px;
     padding: 10px 44px;
     font-size: 1.4rem;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: #fd6b52;
     color: white;
+    font-weight: 600;
 }
 
-.btn:hover{
+.btn:hover {
     background-color: #ff5733;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 2px solid white;
 }
-

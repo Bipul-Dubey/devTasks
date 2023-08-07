@@ -1,8 +1,8 @@
 import '../components/Mycomponent.css'
 import ButtonComp from './Button';
-function ButtonPage(){
+function ButtonPage() {
     return <div class="btn-container">
-        <ButtonComp name="Submit" class="btn"/>
+        <ButtonComp name="Submit" class="btn" />
     </div>
 }
 

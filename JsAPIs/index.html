@@ -23,7 +23,7 @@
                 </tr>
             </thead>
             <tbody id="user-details">
-                
+
             </tbody>
         </table>
     </main>
@@ -32,16 +32,16 @@
         const url = `https://jsonplaceholder.typicode.com/users`
         async function apiDataFetch() {
             try {
-                let response = await fetch(url)
+                let response = await fetch(url, { method: "GET" })
                 if (response.status == 200) {
                     let data = await response.json()
 
-                    let table_data=""
+                    let table_data = ""
 
                     let user_table = document.getElementById("user-details")
-                    
+
                     data.forEach(element => {
-                        table_data+=`<tr>
+                        table_data += `<tr>
                                         <td>${element.id}</td>
                                         <td>${element.username}</td>
                                         <td>${element.name}</td>
@@ -50,7 +50,7 @@
                                     </tr>`
                     });
 
-                    user_table.innerHTML=table_data;
+                    user_table.innerHTML = table_data;
                 }
             }
             catch (error) {

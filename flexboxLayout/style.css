@@ -1,58 +1,58 @@
-*{
+* {
     margin: 0px;
     padding: 0px;
 }
 
-body{
+body {
     background-color: antiquewhite;
     display: flex;
     flex-direction: column;
 }
 
-h4{
+h4 {
     text-align: center;
 }
 
 /* header */
-header{
+header {
     background-color: cornflowerblue;
     padding: 5px;
     height: 7vh;
 }
 
 /* main */
-main{
+main {
     display: flex;
     flex-wrap: wrap;
 }
 
-section{
+section {
     display: flex;
     flex-direction: column;
     flex: 3;
 }
 
-aside{
-    flex:1;
+aside {
+    flex: 1;
     height: 82vh;
     background-color: red;
 }
 
-article{
+article {
     height: 41vh;
 }
 
-.article1{
+.article1 {
     background-color: chartreuse;
 }
 
-.article2{
+.article2 {
     background-color: blueviolet;
 }
 
 
 /* footer */
-footer{
+footer {
     background-color: aquamarine;
     padding: 10px;
     height: 7vh;

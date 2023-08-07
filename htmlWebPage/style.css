@@ -18,13 +18,13 @@ header {
     font-family: 'Ubuntu', sans-serif;
 }
 
-nav ul{
+nav ul {
     display: flex;
     list-style: none;
     flex-wrap: wrap;
 }
 
-nav ul li a{
+nav ul li a {
     margin: 0 18px;
 }
 
@@ -41,7 +41,7 @@ nav a:hover {
     cursor: default;
 }
 
-header > a {
+header>a {
     text-decoration: none;
     font-size: 1.2rem;
     color: rgb(9, 108, 94);
@@ -56,7 +56,7 @@ main {
 /* Home Intro */
 .intro {
     height: 410px;
-    background: url("../images/background.jpg") no-repeat center center;
+    background: url("./images/background.jpg") no-repeat center center;
     background-position: center;
     background-size: cover;
     font-family: 'Roboto Mono', monospace;
@@ -85,13 +85,15 @@ main {
     font-family: 'Roboto Mono', monospace;
 }
 
-.members,.techs {
+.members,
+.techs {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
 
-.member,.tech {
+.member,
+.tech {
     height: 350px;
     width: 300px;
     margin: 10px;
@@ -118,7 +120,7 @@ hr {
     display: flex;
     flex-direction: column;
     padding: 20px;
-    background: url("../images/contacts.webp") no-repeat center center;
+    background: url("./images/contacts.webp") no-repeat center center;
     background-size: cover;
 }
 
@@ -189,17 +191,17 @@ footer p {
 }
 
 /* utils */
-main{
+main {
     text-align: center;
 }
 
-main h3{
+main h3 {
     font-size: 1.7rem;
-    color:#142d4c;
+    color: #142d4c;
     font-family: 'Franklin Gothic Medium', sans-serif;
 }
 
-main p{
+main p {
     font-size: 1.2rem;
-    color:brown;
+    color: brown;
 }
