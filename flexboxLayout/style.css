@@ -1,0 +1,59 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+}
+
+h4{
+    text-align: center;
+}
+
+/* header */
+header{
+    background-color: cornflowerblue;
+    padding: 5px;
+    height: 7vh;
+}
+
+/* main */
+main{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    flex: 3;
+}
+
+aside{
+    flex:1;
+    height: 82vh;
+    background-color: red;
+}
+
+article{
+    height: 41vh;
+}
+
+.article1{
+    background-color: chartreuse;
+}
+
+.article2{
+    background-color: blueviolet;
+}
+
+
+/* footer */
+footer{
+    background-color: aquamarine;
+    padding: 10px;
+    height: 7vh;
+}
