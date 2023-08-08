@@ -1,0 +1,55 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.App {
+    background-color: antiquewhite;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Counter-Box {
+    width: 300px;
+    height: 300px;
+    background-color: darksalmon;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading {
+    text-align: center;
+    margin: 10px;
+    color: rgb(204, 38, 38);
+    font-family: 'Lucida Sans', sans-serif;
+    text-decoration: underline;
+}
+
+.Steps {
+    display: flex;
+    margin: 7px 7px;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+}
+
+.btn {
+    font-size: 25px;
+    padding: 2px 17px;
+    border: 2px solid white;
+    border-radius: 30px;
+    background-color: transparent;
+    color: #fff;
+}
+
+.btn:hover {
+    background-color: rgb(196, 105, 40);
+}
+
+.btn:active {
+    background-color: aquamarine;
+}
