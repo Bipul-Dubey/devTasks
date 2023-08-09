@@ -35,14 +35,20 @@ function Counters() {
 
     return <div>
         <div className="Steps">
-            <button className="btn" type="button" onClick={stepMinusHandler}>-</button>
+            <UpdateButton onClick={stepMinusHandler} text="-" />
             <h4>Step: {step}</h4>
-            <button className="btn" type="button" onClick={stepPlusHandler}>+</button>
+            <UpdateButton onClick={stepPlusHandler} text="+" />
         </div>
         <div className="Steps">
-            <button className="btn" type="button" onClick={countMinusHandler}>-</button>
+            <UpdateButton onClick={countMinusHandler} text="-" />
             <h4>Counter: {count}</h4>
-            <button className="btn" type="button" onClick={countPlusHandler}>+</button>
+            <UpdateButton onClick={countPlusHandler} text="+" />
         </div>
     </div>
+}
+
+function UpdateButton({ onClick, text }) {
+    return (
+        <button className="btn" type="button" onClick={onClick}>{text}</button>
+    );
 }
