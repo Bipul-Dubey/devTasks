@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route, Link, useParams, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { login, logout } from './actions'
+import { loggedActions } from './actions'
 
 export default function App() {
   const isLoggedIn = useSelector(state => state.isLoggedIn);
@@ -11,7 +11,6 @@ export default function App() {
       <Header />
       <Routes>
 
-        {/* only before login */}
         <Route exact path='/signin' element={<SignIn />} />
         <Route exact path='/signup' element={<SignUp />} />
 
@@ -38,7 +37,7 @@ function Header() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    dispatch(logout());
+    dispatch(loggedActions.logout());
     navigate('/');
   };
 
@@ -55,7 +54,7 @@ function Header() {
           <li><Link className="link" to="/">Home</Link></li>
           <li><Link className="link" to="/about">About</Link></li>
           <li><Link className="link" to="/services">Services</Link></li>
-          <li><Link className="link" to="/" onClick={handleLogout}>Sign out</Link></li>
+          <li><Link className="link" to="/signin" onClick={handleLogout}>Sign out</Link></li>
         </>}
     </ul>
   </header>
@@ -72,13 +71,13 @@ function SignUp() {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    dispatch(login());
+    dispatch(loggedActions.login());
     navigate('/');
   };
 
   return <main>
     <h3>This is Sign Up Page</h3>
-    <button onClick={handleLogin}>SignUp</button>
+    <button className='btn' onClick={handleLogin}>SignUp</button>
   </main>
 }
 
@@ -87,13 +86,13 @@ function SignIn() {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    dispatch(login());
+    dispatch(loggedActions.login());
     navigate('/');
   };
 
   return <main>
     <h3>This is Sign In Page</h3>
-    <button type='button' onClick={handleLogin}>Login</button>
+    <button className='btn' type='button' onClick={handleLogin}>Login</button>
   </main>
 }
 

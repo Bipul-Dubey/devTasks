@@ -1,26 +1,22 @@
-import { createStore } from 'redux'
+import { createSlice, configureStore } from '@reduxjs/toolkit'
 
-export const login = () => ({
-    type: 'LOGIN',
-});
-
-export const logout = () => ({
-    type: 'LOGOUT',
-});
-
-const initialState = {
-    isLoggedIn: false,
-};
-
-const loggedReducer = (currentState = initialState, action) => {
-    if (action.type === 'LOGIN') {
-        return { ...currentState, isLoggedIn: true };
+const loggedSlice = createSlice({
+    name: "loggedSlice",
+    initialState: { isLoggedIn: false },
+    reducers: {
+        login(state) {
+            state.isLoggedIn = true
+        },
+        logout(state) {
+            state.isLoggedIn = false
+        }
     }
-    else if (action.type === 'LOGOUT') {
-        return { ...currentState, isLoggedIn: false };
-    }
-    return currentState;
-};
+})
 
-const store = createStore(loggedReducer)
+const store = configureStore({
+    reducer: loggedSlice.reducer
+})
+
+export const loggedActions = loggedSlice.actions;
+
 export default store;
