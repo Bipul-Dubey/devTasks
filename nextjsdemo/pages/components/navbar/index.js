@@ -16,6 +16,7 @@ export default function Navbar() {
             {isLoggedIn ? (
                 <>
                     <li><Link className="link" href={{ pathname: '/' }}>Home</Link></li>
+                    <li><Link className="link" href={{ pathname: '/posts' }}>Posts</Link></li>
                     <li><Link className="link" href={{ pathname: '/about' }}>About Us</Link></li>
                     <li><Link className="link" href={{ pathname: '/services' }}>Services</Link></li>
                     <li><Link className="link" href={{ pathname: '/' }}><button className="btn" onClick={handleLogout}>Sign Out</button></Link></li>
@@ -23,6 +24,7 @@ export default function Navbar() {
             ) : (
                 <>
                     <li><Link className="link" href={{ pathname: '/' }}>Home</Link></li>
+                    <li><Link className="link" href={{ pathname: '/posts' }}>Posts</Link></li>
                     <li><Link className="link" href={{ pathname: '/signin' }}>Sign In</Link></li>
                 </>
             )}
