@@ -1,10 +1,12 @@
 import styled from "styled-components";
+import Link from "next/link";
 
 export const getStaticProps = async () => {
     const res = await fetch("https://jsonplaceholder.typicode.com/posts");
     const data = await res.json()
     return { props: { data } }
 }
+
 
 export default function POSTS({ data }) {
     return <>
@@ -43,7 +45,7 @@ function PostList({ currentElement }) {
     return <Post>
         <Title>
             <h4>ID: {currentElement.id}</h4>
-            <strong>Title: {currentElement.title}</strong>
+            <Link href={`posts/${currentElement.id}`}><strong>Title: {currentElement.title}</strong></Link>
         </Title>
         <p>{currentElement.body}</p>
     </Post>

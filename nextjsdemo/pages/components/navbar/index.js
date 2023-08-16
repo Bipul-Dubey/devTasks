@@ -15,6 +15,7 @@ export default function Navbar() {
         <ul className="list">
             {isLoggedIn ? (
                 <>
+                    <Link href={{ pathname: "/demo" }}>demo</Link>
                     <li><Link className="link" href={{ pathname: '/' }}>Home</Link></li>
                     <li><Link className="link" href={{ pathname: '/posts' }}>Posts</Link></li>
                     <li><Link className="link" href={{ pathname: '/about' }}>About Us</Link></li>
