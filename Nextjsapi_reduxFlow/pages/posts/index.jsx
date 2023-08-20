@@ -6,6 +6,7 @@ import styled from 'styled-components'
 
 export default function PostsPage() {
     const posts = useSelector(state => state.POSTS.list)
+    const isLoading = useSelector(state => !state.POSTS.checked);
 
     useEffect(() => {
         handleGetPosts()
@@ -13,10 +14,10 @@ export default function PostsPage() {
 
     return <div>
         <h1>POSTS</h1>
-        {
-            posts.map((post) => (
-                <Post post={post} key={post.id} />
-            ))
+        <h3>Total Posts: {posts.length}</h3>
+        {isLoading ? (<p>loading........</p>) : (posts.map((post) => (
+            <Post post={post} key={post.id} />
+        )))
         }
     </div>
 }
@@ -35,5 +36,6 @@ function Post({ post }) {
         <h3>{post.id}</h3>
         <Link href={`posts/${post.id}`}><span>{post.title}</span></Link>
         <article>{post.body}</article>
+        <button>Delete</button>
     </StyledPostDiv>
 }
