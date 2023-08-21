@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
-import { handleGetPosts } from '../../services/posts.services'
+import { handleGetPosts, handleDeletePost } from '../../services/posts.services'
 import Link from 'next/link'
 import styled from 'styled-components'
 
@@ -15,7 +15,7 @@ export default function PostsPage() {
     return <div>
         <h1>POSTS</h1>
         <h3>Total Posts: {posts.length}</h3>
-        {isLoading ? (<p>loading........</p>) : (posts.map((post) => (
+        {(posts.slice(0, 10).map((post) => (
             <Post post={post} key={post.id} />
         )))
         }
@@ -36,6 +36,6 @@ function Post({ post }) {
         <h3>{post.id}</h3>
         <Link href={`posts/${post.id}`}><span>{post.title}</span></Link>
         <article>{post.body}</article>
-        <button>Delete</button>
+        <button onClick={() => handleDeletePost(post.id)}>Delete</button>
     </StyledPostDiv>
 }

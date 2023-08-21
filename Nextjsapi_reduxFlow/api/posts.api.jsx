@@ -12,6 +12,11 @@ class PostsAPI {
             const result = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
             return result
         }
+
+        this.DeletePost = async (id) => {
+            const result = await axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`)
+            return result
+        }
     }
 }
 

@@ -1,4 +1,4 @@
-import { getPosts, getPostId } from '../actions/posts.action'
+import { getPosts, getPostId, deletePost } from '../actions/posts.action'
 import { store } from '../store'
 
 export const handleGetPosts = () => {
@@ -7,4 +7,8 @@ export const handleGetPosts = () => {
 
 export const handleGetPost = (id) => {
     return store.dispatch(getPostId(id))
+}
+
+export const handleDeletePost = (id) => {
+    return store.dispatch(deletePost(id))
 }
