@@ -1,5 +1,5 @@
 import { useLoadScript, GoogleMap, MarkerF, DirectionsRenderer, Marker } from '@react-google-maps/api'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 const apikey = "AIzaSyBAJN8qUTOgt5-Q68NzMNmAFEntVNC_Ir0"
 export default function Page() {
     const waypoints = [
@@ -9,6 +9,7 @@ export default function Page() {
 
     return <div>
         <h1>Google Map</h1>
+        <MapLocator locations={waypoints} />
         <Map location={{ lat: 18.52043, lng: 73.856743 }} />
         <Map2 locations={waypoints} center={{ lat: 38.5816, lng: -121.4944 }} />
         <MapWithRoutes />
@@ -74,6 +75,7 @@ function MapWithRoutes() {
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: apikey,
     });
+
     const [dir, setDir] = useState(null)
 
     const source = { lat: 37.7749, lng: -122.4194 };
@@ -83,6 +85,10 @@ function MapWithRoutes() {
         { location: { lat: 38.5816, lng: -121.4944 } },
         { location: { lat: 36.7783, lng: -119.4179 } }
     ];
+
+    if (!isLoaded) {
+        return <h1>Loading...</h1>;
+    }
 
 
     let dirService = new google.maps.DirectionsService()
@@ -102,26 +108,75 @@ function MapWithRoutes() {
     )
 
     return (
-        <>
-            {!isLoaded ? (
-                <h1>Loading...</h1>
-            ) : (
-                <div style={{ height: "500px", width: "1000px", margin: "20px" }}>
-                    <GoogleMap
-                        mapContainerStyle={{ height: "100%" }}
-                        // center={center}
-                        zoom={1}
-                    >
-                        {locations.map((loc, index) => (
-                            <MarkerF
-                                key={index}
-                                position={loc.location}
-                            />
-                        ))}
-                        {dir && <DirectionsRenderer directions={dir} />}
-                    </GoogleMap>
-                </div>
-            )}
-        </>
+        <div style={{ height: "500px", width: "1000px", margin: "20px" }}>
+            <GoogleMap
+                mapContainerStyle={{ height: "100%" }}
+                // center={center}
+                zoom={1}
+            >
+                {locations.map((loc, index) => (
+                    <MarkerF
+                        key={index}
+                        position={loc.location}
+                    />
+                ))}
+                {dir && <DirectionsRenderer directions={dir} />}
+            </GoogleMap>
+        </div>
     );
 };
+
+
+function MapLocator({ locations }) {
+    const { isLoaded } = useLoadScript({
+        googleMapsApiKey: apikey,
+    });
+
+    const [dir, setDir] = useState(null);
+
+    useEffect(() => {
+        if (isLoaded) {
+            const source = locations[0];
+            const destination = locations[locations.length - 1];
+            const waypoints = locations.slice(1, -1);
+
+            let dirService = new window.google.maps.DirectionsService();
+
+            dirService.route(
+                {
+                    origin: source,
+                    destination: destination,
+                    waypoints: waypoints,
+                    travelMode: 'DRIVING'
+                },
+                (result, status) => {
+                    if (status === 'OK') {
+                        setDir(result);
+                    }
+                }
+            );
+        }
+    }, [isLoaded, locations]);
+
+    if (!isLoaded) {
+        return <h1>Loading...</h1>;
+    }
+
+    return (
+        <div style={{ height: "500px", width: "1000px", margin: "20px" }}>
+            <GoogleMap
+                mapContainerStyle={{ height: "100%" }}
+                center={locations[0]}
+                zoom={8}
+            >
+                {locations.map((loc, index) => (
+                    <Marker
+                        key={index}
+                        position={loc}
+                    />
+                ))}
+                {dir && <DirectionsRenderer directions={dir} />}
+            </GoogleMap>
+        </div>
+    );
+}
