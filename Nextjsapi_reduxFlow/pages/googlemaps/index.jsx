@@ -74,16 +74,27 @@ function MapLocator({ locations, width, height }) {
         }
     }
 
+    const greenCircleIcon = {
+        path: window.google.maps.SymbolPath.CIRCLE,
+        fillColor: 'white',
+        fillOpacity: 1,
+        strokeColor: '#54D62C',
+        strokeOpacity: 1,
+        strokeWeight: 5,
+        scale: 8,
+    };
+
     return (
         <div style={{ height: `${height}px`, width: `${width}px` }}>
             <GoogleMap
                 mapContainerStyle={{ height: `${height}px`, width: `${width}px` }}
                 zoom={8}
             >
-                <MarkerF position={{ lat: 35.0783, lng: -109.3179 }} icon={{
+                {/* <MarkerF position={{ lat: 35.0783, lng: -109.3179 }} icon={{
                     url: "https://upload.wikimedia.org/wikipedia/commons/9/97/Eo_circle_light-green_circle.svg",
                     scaledSize: new google.maps.Size(30, 30)
-                }} />
+                }} /> */}
+                <MarkerF position={{ lat: 35.0522, lng: -119.0000 }} icon={greenCircleIcon} />
                 {locations.map((loc, index) => (
                     <MarkerF
                         key={index}
