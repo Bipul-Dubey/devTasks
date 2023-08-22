@@ -18,9 +18,9 @@ export default function Page() {
     return <div>
         <h1>Google Map</h1>
         <MapLocator locations={locations} width={1000} height={400} />
-        <Map location={{ lat: 18.52043, lng: 73.856743 }} />
+        {/* <Map location={{ lat: 18.52043, lng: 73.856743 }} />
         <Map2 locations={waypoints} center={{ lat: 38.5816, lng: -121.4944 }} />
-        <MapWithRoutes />
+        <MapWithRoutes /> */}
     </div >
 }
 
@@ -59,19 +59,38 @@ function MapLocator({ locations, width, height }) {
         return <h1>Loading...</h1>;
     }
 
+    const opts = {
+        polylineOptions: {
+            strokeOpacity: 0,
+            strokeColor: '#233455',
+            strokeWeight: 3,
+            icons: [
+                {
+                    icon: { path: 'M 0,0 0,1', strokeOpacity: 1, scale: 3 },
+                    offset: '0',
+                    repeat: '10px'
+                }
+            ]
+        }
+    }
+
     return (
         <div style={{ height: `${height}px`, width: `${width}px` }}>
             <GoogleMap
                 mapContainerStyle={{ height: `${height}px`, width: `${width}px` }}
                 zoom={8}
             >
+                <MarkerF position={{ lat: 35.0783, lng: -109.3179 }} icon={{
+                    url: "https://upload.wikimedia.org/wikipedia/commons/9/97/Eo_circle_light-green_circle.svg",
+                    scaledSize: new google.maps.Size(30, 30)
+                }} />
                 {locations.map((loc, index) => (
                     <MarkerF
                         key={index}
                         position={loc}
                     />
                 ))}
-                {dir && <DirectionsRenderer directions={dir} />}
+                {dir && <DirectionsRenderer directions={dir} options={opts} />}
             </GoogleMap>
         </div>
     );
