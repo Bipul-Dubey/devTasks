@@ -7,13 +7,74 @@ export default function Page() {
         { location: { lat: 36.7783, lng: -119.4179 } }
     ];
 
+    const locations = [
+        { location: { lat: 38.5816, lng: -121.4944 } },
+        { location: { lat: 36.7783, lng: -119.4179 } },
+        { location: { lat: 34.0522, lng: -118.2437 } },
+        { location: { lat: 32.7157, lng: -117.1611 } },
+        { location: { lat: 39.9526, lng: -75.1652 } }
+    ];
+
     return <div>
         <h1>Google Map</h1>
-        <MapLocator locations={waypoints} />
+        <MapLocator locations={locations} />
         <Map location={{ lat: 18.52043, lng: 73.856743 }} />
         <Map2 locations={waypoints} center={{ lat: 38.5816, lng: -121.4944 }} />
         <MapWithRoutes />
     </div >
+}
+
+function MapLocator({ locations }) {
+    const { isLoaded } = useLoadScript({
+        googleMapsApiKey: apikey,
+    });
+
+    const [dir, setDir] = useState(null);
+
+    useEffect(() => {
+        if (isLoaded) {
+            const source = locations[0];
+            const destination = locations[locations.length - 1];
+            const waypoints = locations.slice(1, -1);
+
+            let dirService = new window.google.maps.DirectionsService();
+
+            dirService.route(
+                {
+                    origin: source,
+                    destination: destination,
+                    waypoints: waypoints,
+                    travelMode: 'DRIVING'
+                },
+                (result, status) => {
+                    if (status === 'OK') {
+                        setDir(result);
+                    }
+                }
+            );
+        }
+    }, [isLoaded, locations]);
+
+    if (!isLoaded) {
+        return <h1>Loading...</h1>;
+    }
+
+    return (
+        <div style={{ height: "500px", width: "1000px", margin: "20px" }}>
+            <GoogleMap
+                mapContainerStyle={{ height: "100%" }}
+                zoom={8}
+            >
+                {locations.map((loc, index) => (
+                    <MarkerF
+                        key={index}
+                        position={loc}
+                    />
+                ))}
+                {dir && <DirectionsRenderer directions={dir} />}
+            </GoogleMap>
+        </div>
+    );
 }
 
 function Map({ location }) {
@@ -125,58 +186,3 @@ function MapWithRoutes() {
         </div>
     );
 };
-
-
-function MapLocator({ locations }) {
-    const { isLoaded } = useLoadScript({
-        googleMapsApiKey: apikey,
-    });
-
-    const [dir, setDir] = useState(null);
-
-    useEffect(() => {
-        if (isLoaded) {
-            const source = locations[0];
-            const destination = locations[locations.length - 1];
-            const waypoints = locations.slice(1, -1);
-
-            let dirService = new window.google.maps.DirectionsService();
-
-            dirService.route(
-                {
-                    origin: source,
-                    destination: destination,
-                    waypoints: waypoints,
-                    travelMode: 'DRIVING'
-                },
-                (result, status) => {
-                    if (status === 'OK') {
-                        setDir(result);
-                    }
-                }
-            );
-        }
-    }, [isLoaded, locations]);
-
-    if (!isLoaded) {
-        return <h1>Loading...</h1>;
-    }
-
-    return (
-        <div style={{ height: "500px", width: "1000px", margin: "20px" }}>
-            <GoogleMap
-                mapContainerStyle={{ height: "100%" }}
-                center={locations[0]}
-                zoom={8}
-            >
-                {locations.map((loc, index) => (
-                    <Marker
-                        key={index}
-                        position={loc}
-                    />
-                ))}
-                {dir && <DirectionsRenderer directions={dir} />}
-            </GoogleMap>
-        </div>
-    );
-}
