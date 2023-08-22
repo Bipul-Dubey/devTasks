@@ -17,14 +17,14 @@ export default function Page() {
 
     return <div>
         <h1>Google Map</h1>
-        <MapLocator locations={locations} />
+        <MapLocator locations={locations} width={1000} height={400} />
         <Map location={{ lat: 18.52043, lng: 73.856743 }} />
         <Map2 locations={waypoints} center={{ lat: 38.5816, lng: -121.4944 }} />
         <MapWithRoutes />
     </div >
 }
 
-function MapLocator({ locations }) {
+function MapLocator({ locations, width, height }) {
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: apikey,
     });
@@ -60,9 +60,9 @@ function MapLocator({ locations }) {
     }
 
     return (
-        <div style={{ height: "500px", width: "1000px", margin: "20px" }}>
+        <div style={{ height: `${height}px`, width: `${width}px` }}>
             <GoogleMap
-                mapContainerStyle={{ height: "100%" }}
+                mapContainerStyle={{ height: `${height}px`, width: `${width}px` }}
                 zoom={8}
             >
                 {locations.map((loc, index) => (
