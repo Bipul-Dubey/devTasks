@@ -1,4 +1,4 @@
-import { useLoadScript, GoogleMap, MarkerF, DirectionsRenderer, Marker } from '@react-google-maps/api'
+import { useLoadScript, GoogleMap, MarkerF, DirectionsRenderer, PolylineF, Polyline } from '@react-google-maps/api'
 import { useState, useEffect } from 'react';
 const apikey = "AIzaSyBAJN8qUTOgt5-Q68NzMNmAFEntVNC_Ir0"
 export default function Page() {
@@ -17,11 +17,123 @@ export default function Page() {
 
     return <div>
         <h1>Google Map</h1>
-        <MapLocator locations={locations} width={1000} height={400} />
+        <MapLocator2 />
+        {/* <MapLocator locations={locations} width={1000} height={400} /> */}
         {/* <Map location={{ lat: 18.52043, lng: 73.856743 }} />
         <Map2 locations={waypoints} center={{ lat: 38.5816, lng: -121.4944 }} />
         <MapWithRoutes /> */}
     </div >
+}
+
+function MapLocator2({ width = 1000, height = 400 }) {
+    const { isLoaded } = useLoadScript({
+        googleMapsApiKey: apikey,
+    });
+
+    const [map, setMap] = useState(null);
+
+    const onLoad = (map) => {
+        setMap(map);
+    };
+
+
+    const pathCoordinates = [
+        { lat: 38.5816, lng: -121.4944 },
+        { lat: 36.7783, lng: -119.4179 },
+        { lat: 34.0522, lng: -118.2437 }
+    ];
+
+
+    const dashedPathCoordinates = [
+        { lat: 34.0522, lng: -118.2437 },
+        { lat: 32.7157, lng: -117.1611 },
+        { lat: 39.9526, lng: -75.1652 },
+    ];
+
+    const totalRoutes = [...pathCoordinates, ...dashedPathCoordinates]
+
+    const currentLocation = pathCoordinates[pathCoordinates.length - 1]
+
+    useEffect(() => {
+        if (isLoaded && map) {
+            const bounds = new window.google.maps.LatLngBounds();
+
+            totalRoutes.forEach(coord => {
+                bounds.extend(new window.google.maps.LatLng(coord.lat, coord.lng));
+            });
+            if (currentLocation) {
+                bounds.extend(new window.google.maps.LatLng(currentLocation.lat, currentLocation.lng));
+            }
+
+            map.fitBounds(bounds);
+        }
+    }, [isLoaded, map, currentLocation]);
+
+    if (!isLoaded) {
+        return <h1>Loading...</h1>;
+    }
+
+    const completeCircleIcon = {
+        path: window.google.maps.SymbolPath.CIRCLE,
+        fillColor: 'white',
+        fillOpacity: 1,
+        strokeColor: '#233455',
+        strokeOpacity: 1,
+        strokeWeight: 5,
+        scale: 8,
+    };
+
+    const greenCircleIcon = {
+        path: window.google.maps.SymbolPath.CIRCLE,
+        fillColor: 'white',
+        fillOpacity: 1,
+        strokeColor: '#26e151',
+        strokeOpacity: 1,
+        strokeWeight: 5,
+        scale: 8,
+    };
+
+
+    return (
+        <div style={{ height: `${height}px`, width: `${width}px` }}>
+            <h2>Map 2</h2>
+            <GoogleMap
+                mapContainerStyle={{ height: `${height}px`, width: `${width}px` }}
+                onLoad={onLoad}
+                options={{
+                    mapTypeControl: false,
+                    streetViewControl: false
+                }}
+            >
+                <MarkerF position={pathCoordinates[0]} icon={completeCircleIcon} />
+                <MarkerF position={currentLocation} icon={greenCircleIcon} />
+                <PolylineF
+                    path={pathCoordinates}
+                    options={{
+                        strokeColor: "#233455",
+                        strokeOpacity: 1,
+                        strokeWeight: 3
+                    }}
+                />
+                <PolylineF
+                    path={dashedPathCoordinates}
+                    options={{
+                        strokeColor: "#233455",
+                        strokeOpacity: 1,
+                        strokeWeight: 3,
+                        strokeOpacity: 0,
+                        icons: [
+                            {
+                                icon: { path: 'M 0,0 0,1', strokeOpacity: 1, scale: 3 },
+                                offset: '0',
+                                repeat: '10px'
+                            }
+                        ]
+                    }}
+                />
+            </GoogleMap>
+        </div>
+    );
 }
 
 function MapLocator({ locations, width, height }) {
